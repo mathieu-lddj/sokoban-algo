@@ -10,7 +10,7 @@ class Game:
         self.objects_placed = False
         self.under_player_type = "0" # Type of the tile under the player
         self.goals_located = False # To only find them once
-        self.goals_location = []
+        self.goals_locations = []
         self.exit_spawned = False
         self.never_located = True # To know where to spawn the exit
         self.exit_spawn_loc = None
@@ -30,13 +30,13 @@ class Game:
 
 
     def reset_game(self):
-        self.map=get_map(f"../../maps/map 1.txt")
+        self.map=get_map(f"../maps/map 1.txt")
         self.actual_level = 1
         self.player_loc = None
         self.objects_placed = False
         self.under_player_type = "0"
         self.goals_located = False
-        self.goals_location = []
+        self.goals_locations = []
         self.exit_spawned = False
         self.never_located = True
         self.exit_spawn_loc = None
@@ -123,10 +123,12 @@ class Game:
                 self.map[dy2][dx2] = OBJECT
                 self.map[dy][dx] = PLAYER
                 self.map[y][x] = self.under_player_type
+                self.under_player_type = VOID
             else:
                 self.map[y][x] = self.under_player_type
                 self.map[dy][dx] = PLAYER
                 self.map[dy2][dx2] = OBJECT
+                self.under_player_type = VOID
 
         elif IN_FRONT == GOAL:
             self.map[y][x] = self.under_player_type
@@ -148,7 +150,7 @@ class Game:
                 # reset flags
                 self.exit_spawned = False
                 self.goals_located = False
-                self.goals_location = []
+                self.goals_locations = []
                 self.objects_placed = False
                 self.never_located = True
             else:
