@@ -18,4 +18,4 @@ def find_tiles(matrice, type):
 moves_input = ("z","q","s","d","r")
 
 # Void, Wall, Player, Object, Goal, Endgame
-type_dico = {"0": "🔲", "1": "🧱", "2": "🤠", "3": "🧊", "4": "✨", "5": "🚩"}
+type_dico = {"0": "⬜", "1": "🧱", "2": "🤠", "3": "🧊", "4": "🎯", "5": "🚪"}
